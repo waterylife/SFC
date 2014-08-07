@@ -1,0 +1,3 @@
+#define MAX_CONNECTIONS 1024
+#define READ_BUF_LEN 1024
+#define MAX_EVENTS 10

@@ -1,0 +1,16 @@
+
+#ifndef __ESF_IPC_OPEN_MQ_H__
+#define __ESF_IPC_OPEN_MQ_H__
+
+#include "esf_ipc_mq.h"
+#include <string>
+
+//////////////////////////////////////////////////////////////////////////
+
+namespace esf {	namespace ipc {
+	CFifoSyncMQ* GetMQ(const std::string& conf_file);
+}}
+
+//////////////////////////////////////////////////////////////////////////
+#endif//
+///:~
