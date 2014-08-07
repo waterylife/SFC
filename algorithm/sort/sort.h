@@ -1,7 +1,7 @@
 #include <boost/smart_ptr.hpp>
 #include <iostream>
 
-using namespace boost;
+// using namespace boost;
 using namespace std;
 
 /*
@@ -9,7 +9,7 @@ using namespace std;
 * 复杂度：O(n2)
 */
 template <class T, class commpFun>
-int insert_sort(shared_ptr<T> sp, int size, commpFun commp)
+int insert_sort(boost::shared_ptr<T> sp, int size, commpFun commp)
 {
 	for(int i = 1; i < size; i++) {
 		for(int j = 0; j < i; j++) {  //顺序查找

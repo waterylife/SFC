@@ -3,23 +3,25 @@ CC  = gcc
 CXX = g++
 GCCVER := $(shell $(CC) -dumpversion | awk -F. '{ print $$1"."$$2}' )
 
-HOM=/Users/Shawn/Workspace/sfc
+HOM=/Users/Shawn/Workspace/SFC
 
 #LIB += -lsppasync -lasync_epoll -lcore
 
 #BUILD_DIR=../../build
-PUB_DIR=$(HOM)/public 
+PUB_DIR=$(HOM)/public
 OBJ_DIR=./
 LIB_DIR=.
 
-INC=-I$(HOM)/public
+vpath %.cpp $(PUB_DIR)
+
+INC=-I$(HOM)/public -I/usr/local/include
 
 LIB_NAME=sort_test 
 
 TARGET = $(LIB_DIR)/$(LIB_NAME)
 
 OBJ = $(OBJ_DIR)/test.o \
-	  $(PUB_DIR)/common.o \
+	  $(PUB_DIR)/common.o
       
 
 OBJ_EXT= .o
