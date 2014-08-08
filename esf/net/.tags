@@ -1,0 +1,430 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AddConn	esf_net_cconn.cpp	/^int CConnSet::AddConn(int fd, unsigned flow)$/;"	f	class:CConnSet
+AllocateConn	esf_net_connector.h	/^	virtual ptr<Connection> AllocateConn()$/;"	f	class:esf::net::ConnectorImp
+AllocateConn	esf_net_network_imp.h	/^	virtual ptr<Connection> AllocateConn(){return ptr<Connection>(new CNBConn());}$/;"	f	class:esf::net::CNBConnAlloc
+AttachFD	esf_net_network_imp.h	/^	virtual void AttachFD(int fd){_socket.attach(fd);_socket.set_nonblock();}$/;"	f	class:esf::net::CNBConn
+CAcceptThread	esf_net_accept_t.cpp	/^CAcceptThread::CAcceptThread(CConnSet& cc, CEPollFlow& epoll)$/;"	f	class:CAcceptThread
+CAcceptThread	esf_net_accept_t.h	/^	class CAcceptThread$/;"	c	namespace:esf::net
+CAcceptor	esf_net_network.h	/^	CAcceptor(ptr<ConnAllocator> allocator):ConnFactoryDrr(allocator){}$/;"	f	class:esf::net::CAcceptor
+CAcceptor	esf_net_network.h	/^class CAcceptor : public ConnFactoryDrr$/;"	c	namespace:esf::net
+CConnSet	esf_net_cconn.cpp	/^CConnSet::CConnSet(check_complete func, CRCPool& rc_pool)$/;"	f	class:CConnSet
+CConnSet	esf_net_cconn.h	/^	class CConnSet$/;"	c	namespace:esf::net
+CDriver	esf_net_driver.h	/^	template<typename T> class CDriver$/;"	c	namespace:esf::net
+CDriverSelect	esf_net_driver_select.h	/^	CDriverSelect(){}$/;"	f	class:esf::net::CDriverSelect
+CDriverSelect	esf_net_driver_select.h	/^class CDriverSelect : public esf::net::CDriver<fd_t>$/;"	c	namespace:esf::net
+CEPollFlow	esf_net_epoll_flow.h	/^			CEPollFlow() : _fd(-1), _events(NULL){}$/;"	f	class:esf::net::CEPollFlow
+CEPollFlow	esf_net_epoll_flow.h	/^	class CEPollFlow$/;"	c	namespace:esf::net
+CEPollFlowResult	esf_net_epoll_flow.h	/^			CEPollFlowResult(const CEPollFlowResult& right)$/;"	f	class:esf::net::CEPollFlowResult
+CEPollFlowResult	esf_net_epoll_flow.h	/^			CEPollFlowResult(epoll_event* events, size_t size, int error = 0)$/;"	f	class:esf::net::CEPollFlowResult
+CEPollFlowResult	esf_net_epoll_flow.h	/^		class CEPollFlowResult$/;"	c	namespace:esf::net
+CHandleConnect	esf_net_incl.h	/^class CHandleConnect$/;"	c
+CHandleConnectImplBase	esf_net_incl.h	/^class CHandleConnectImplBase$/;"	c
+CMemPool	esf_net_mem_pool.h	/^			CMemPool()$/;"	f	class:esf::net::CMemPool
+CMemPool	esf_net_mem_pool.h	/^		class CMemPool$/;"	c	namespace:esf::net
+CNBConn	esf_net_network_imp.h	/^class CNBConn : public Connection$/;"	c	namespace:esf::net
+CNBConnAlloc	esf_net_network_imp.h	/^class CNBConnAlloc : public ConnAllocator$/;"	c	namespace:esf::net
+CONN_HEADER_LEN	esf_net_conn_map.h	46;"	d
+CRCPool	esf_net_raw_cache.cpp	/^CRCPool::CRCPool()$/;"	f	class:CRCPool
+CRCPool	esf_net_raw_cache.h	/^		class CRCPool$/;"	c	namespace:esf::net
+CRawCache	esf_net_raw_cache.cpp	/^CRawCache::CRawCache(CMemPool& mp)$/;"	f	class:CRawCache
+CRawCache	esf_net_raw_cache.h	/^		class CRawCache$/;"	c	namespace:esf::net
+CReactor	esf_net_driver.h	/^	template<typename T> class CReactor$/;"	c	namespace:esf::net
+CSimpleSocketTcp	esf_net_simple_sock.h	/^	CSimpleSocketTcp(){}$/;"	f	class:esf::net::CSimpleSocketTcp
+CSimpleSocketTcp	esf_net_simple_sock.h	/^class CSimpleSocketTcp : public CSocket$/;"	c	namespace:esf::net
+CSimpleSocketUdp	esf_net_simple_sock.h	/^	CSimpleSocketUdp(){}$/;"	f	class:esf::net::CSimpleSocketUdp
+CSimpleSocketUdp	esf_net_simple_sock.h	/^class CSimpleSocketUdp : public CSocket$/;"	c	namespace:esf::net
+CSocket	esf_net_sock.h	/^	CSocket():_socket_fd(INVALID_SOCKET){}$/;"	f	class:esf::net::CSocket
+CSocket	esf_net_sock.h	/^class CSocket$/;"	c	namespace:esf::net
+CSocketAddr	esf_net_sock.h	/^	CSocketAddr():_len(sizeof(struct sockaddr_in))$/;"	f	class:esf::net::CSocketAddr
+CSocketAddr	esf_net_sock.h	/^class CSocketAddr$/;"	c	namespace:esf::net
+CSocketAddr	esf_net_socket_tcp.cpp	/^			CSocketAddr():_len(sizeof(struct sockaddr_in))$/;"	f	class:esf::net::CSocketAddr
+CSocketAddr	esf_net_socket_tcp.cpp	/^	class CSocketAddr$/;"	c	namespace:esf::net	file:
+CSocketTCP	esf_net_socket_tcp.h	/^			CSocketTCP():_socket_fd(INVALID_SOCKET), _close_protect(true){}$/;"	f	class:esf::net::CSocketTCP
+CSocketTCP	esf_net_socket_tcp.h	/^	class CSocketTCP$/;"	c	namespace:esf::net
+CSocketUDP	esf_net_socket_udp.h	/^			CSocketUDP():_socket_fd(INVALID_SOCKET)$/;"	f	class:esf::net::CSocketUDP
+CSocketUDP	esf_net_socket_udp.h	/^		class CSocketUDP$/;"	c	namespace:esf::net
+C_ALLOC_CAPCITY	esf_net_mem_pool.cpp	/^static const unsigned C_ALLOC_CAPCITY= 2*C_SLOT_2;	\/\/ 128M $/;"	v	file:
+C_EXTEND_SET	esf_net_mem_pool.cpp	/^static const unsigned C_EXTEND_SET = 128;$/;"	v	file:
+C_GUARD_SIZE	esf_net_sock.h	/^	static const size_t C_GUARD_SIZE = 15000;	\/\/	120000 fd protected, enough?$/;"	m	class:esf::net::big_fd_set
+C_LOOP_LIMITED	esf_net_network_imp.h	/^	static const unsigned C_LOOP_LIMITED = 128;$/;"	m	class:esf::net::CNBConn
+C_MAX_POOL_SIZE	esf_net_mem_pool.h	/^			static const unsigned C_MAX_POOL_SIZE = 2000 * (1<<20);	\/\/	< (2<<31)$/;"	m	class:esf::net::CMemPool
+C_MAX_WATER_MARK	esf_net_mem_pool.h	/^			static const unsigned C_MAX_WATER_MARK = 1<<30;	\/\/	< (2<<31)$/;"	m	class:esf::net::CMemPool
+C_NEED_SEND	esf_net_cconn.h	25;"	d
+C_READ_BUFFER_SIZE	esf_net_cconn.cpp	/^static const unsigned C_READ_BUFFER_SIZE = 8192;$/;"	v	file:
+C_SELECT_MAX_FD	esf_net_driver_select.h	/^	static const int C_SELECT_MAX_FD		= 1024;$/;"	m	class:esf::net::CDriverSelect
+C_SELECT_WAIT_TIMEOUT	esf_net_driver_select.h	/^	static const int C_SELECT_WAIT_TIMEOUT	= 200000;$/;"	m	class:esf::net::CDriverSelect
+C_SLOT_1	esf_net_mem_pool.cpp	/^static const unsigned C_SLOT_1 = 1<<20;	 \/\/ 1M$/;"	v	file:
+C_SLOT_2	esf_net_mem_pool.cpp	/^static const unsigned C_SLOT_2 = 1<<26;	 \/\/ 64M$/;"	v	file:
+C_TEMP_BUF_SIZE	esf_net_network_imp.h	/^	static const unsigned C_TEMP_BUF_SIZE = 4096;$/;"	m	class:esf::net::CNBConn
+CheckTimeout	esf_net_cconn.cpp	/^void CConnSet::CheckTimeout(time_t access_deadline, list<unsigned>& timeout_flow)$/;"	f	class:CConnSet
+CloseFlow	esf_net_cconn.cpp	/^int CConnSet::CloseFlow(unsigned flow)$/;"	f	class:CConnSet
+ConnAllocator	esf_net_network.h	/^class ConnAllocator$/;"	c	namespace:esf::net
+ConnCache	esf_net_raw_cache.h	/^			ConnCache(esf::net::CMemPool& mp) : _r(mp), _w(mp){}$/;"	f	class:esf::net::ConnCache
+ConnCache	esf_net_raw_cache.h	/^		class ConnCache$/;"	c	namespace:esf::net
+ConnFactoryDrr	esf_net_network.h	/^	ConnFactoryDrr(ptr<ConnAllocator> allocator):_allocator(allocator){}$/;"	f	class:esf::net::ConnFactoryDrr
+ConnFactoryDrr	esf_net_network.h	/^class ConnFactoryDrr : public ConnAllocator$/;"	c	namespace:esf::net
+ConnHeader	esf_net_conn_map.h	/^}ConnHeader;$/;"	t	namespace:esf::net	typeref:struct:esf::net::__anon1
+ConnMap	esf_net_conn_map.cpp	/^ConnMap::ConnMap(int maxconn)$/;"	f	class:ConnMap
+ConnMap	esf_net_conn_map.h	/^class ConnMap$/;"	c	namespace:esf::net
+Connection	esf_net_network.h	/^class Connection$/;"	c	namespace:esf::net
+Connector	esf_net_network.h	/^	Connector(ptr<ConnAllocator> allocator):ConnFactoryDrr(allocator){}$/;"	f	class:esf::net::Connector
+Connector	esf_net_network.h	/^class Connector : public ConnFactoryDrr$/;"	c	namespace:esf::net
+ConnectorImp	esf_net_connector.h	/^	ConnectorImp(ptr<ConnAllocator> allocator) : Connector(allocator){}$/;"	f	class:esf::net::ConnectorImp
+ConnectorImp	esf_net_connector.h	/^class ConnectorImp : public Connector$/;"	c	namespace:esf::net
+ENUM_REACT_MASK	esf_net_driver.h	/^	enum ENUM_REACT_MASK$/;"	g	namespace:esf::net
+ENUM_REACT_RESULT	esf_net_driver.h	/^	enum ENUM_REACT_RESULT$/;"	g	namespace:esf::net
+E_NEED_CLOSE	esf_net_cconn.h	23;"	d
+E_NOT_FINDFD	esf_net_cconn.h	24;"	d
+FD	esf_net_cconn.cpp	/^int CConnSet::FD(unsigned flow)$/;"	f	class:CConnSet
+FD	esf_net_network_imp.h	/^	virtual int FD(){return _socket.fd();}$/;"	f	class:esf::net::CNBConn
+FD_0	esf_net_sock.h	/^	void FD_0(){memset(_guardian, 0, C_GUARD_SIZE);}$/;"	f	class:esf::net::big_fd_set
+FD_UNSET	esf_net_sock.h	/^	void FD_UNSET(int fd)	\/\/	efficient for few, than SET_ZERO()$/;"	f	class:esf::net::big_fd_set
+GetExpire	esf_net_conn_map.cpp	/^int ConnMap::GetExpire(std::vector<unsigned> &vec_key)$/;"	f	class:ConnMap
+GetMessage	esf_net_cconn.cpp	/^int CConnSet::GetMessage(unsigned flow, void* buf, unsigned buf_size, unsigned& data_len)$/;"	f	class:CConnSet
+INVALID_SOCKET	esf_net_sock.h	/^	static const int INVALID_SOCKET = -1;$/;"	m	class:esf::net::CSocket
+INVALID_SOCKET	esf_net_socket_tcp.h	/^			static const int INVALID_SOCKET = -1;$/;"	m	class:esf::net::CSocketTCP
+INVALID_SOCKET	esf_net_socket_udp.h	/^			static const int INVALID_SOCKET = -1;$/;"	m	class:esf::net::CSocketUDP
+IsClosed	esf_net_network_imp.h	/^	virtual bool IsClosed(){return !_socket.socket_is_ok();}$/;"	f	class:esf::net::CNBConn
+MASK_EXCEPT	esf_net_driver.h	/^			MASK_EXCEPT		= 0x00000004,$/;"	e	enum:esf::net::ENUM_REACT_MASK
+MASK_HUNGUP	esf_net_driver.h	/^			MASK_HUNGUP		= 0x00000008,$/;"	e	enum:esf::net::ENUM_REACT_MASK
+MASK_PRIORITY	esf_net_driver.h	/^			MASK_PRIORITY	= 0x00000010,$/;"	e	enum:esf::net::ENUM_REACT_MASK
+MASK_READ	esf_net_driver.h	/^		MASK_READ		= 0x00000001,$/;"	e	enum:esf::net::ENUM_REACT_MASK
+MASK_WRITE	esf_net_driver.h	/^			MASK_WRITE		= 0x00000002,$/;"	e	enum:esf::net::ENUM_REACT_MASK
+REACT_OK	esf_net_driver.h	/^		REACT_OK		= 0,$/;"	e	enum:esf::net::ENUM_REACT_RESULT
+REACT_REMOVE	esf_net_driver.h	/^			REACT_REMOVE	= -1,$/;"	e	enum:esf::net::ENUM_REACT_RESULT
+REACT_RESTART	esf_net_driver.h	/^			REACT_RESTART	= 1,$/;"	e	enum:esf::net::ENUM_REACT_RESULT
+Recv	esf_net_cconn.cpp	/^int CConnSet::Recv(unsigned flow)$/;"	f	class:CConnSet
+Recv	esf_net_network_imp.h	/^inline CBuffer& CNBConn::Recv()$/;"	f	class:esf::net::CNBConn
+SAY	esf_net_conn_map.h	7;"	d
+SAY	esf_net_conn_map.h	9;"	d
+SelectSingleRead	esf_net_driver_select.h	/^inline int SelectSingleRead(fd_t fd, float timeout)$/;"	f	namespace:esf::net
+SelectSingleRead	esf_net_driver_select.h	/^inline int SelectSingleRead(fd_t fd, float timeout, fd_set* r_set)$/;"	f	namespace:esf::net
+SelectSingleWrite	esf_net_driver_select.h	/^inline int SelectSingleWrite(fd_t fd, float timeout)$/;"	f	namespace:esf::net
+SelectSingleWrite	esf_net_driver_select.h	/^inline int SelectSingleWrite(fd_t fd, float timeout, fd_set* w_set)$/;"	f	namespace:esf::net
+Send	esf_net_cconn.cpp	/^int CConnSet::Send(unsigned flow, const char* sData, size_t iDataLen)$/;"	f	class:CConnSet
+Send	esf_net_network_imp.h	/^inline int CNBConn::Send(const char* sSendBuf, size_t iSendLen)$/;"	f	class:esf::net::CNBConn
+SendAvailable	esf_net_network_imp.h	/^inline bool CNBConn::SendAvailable()$/;"	f	class:esf::net::CNBConn
+SendCache	esf_net_network_imp.h	/^inline int CNBConn::SendCache()$/;"	f	class:esf::net::CNBConn
+SendForce	esf_net_cconn.cpp	/^int CConnSet::SendForce(unsigned flow, const char* sData, size_t iDataLen)$/;"	f	class:CConnSet
+SendFromCache	esf_net_cconn.cpp	/^int CConnSet::SendFromCache(unsigned flow)$/;"	f	class:CConnSet
+SetSAP	esf_net_connector.h	/^	virtual bool SetSAP(unsigned short iPort, const std::string& sHost)$/;"	f	class:esf::net::ConnectorImp
+THROW_SOEXP	esf_net_sock.h	122;"	d
+THROW_SOEXP_SIMP	esf_net_sock.h	123;"	d
+__CONN_MAP_H__	esf_net_conn_map.h	2;"	d
+__ESF_NET_ACCEPT_H__	esf_net_accept_t.h	3;"	d
+__ESF_NET_CCONN_H__	esf_net_cconn.h	3;"	d
+__ESF_NET_CONNECTOR_H__	esf_net_connector.h	3;"	d
+__ESF_NET_DRIVER_H__	esf_net_driver.h	3;"	d
+__ESF_NET_DRIVER_SELECT_H__	esf_net_driver_select.h	3;"	d
+__ESF_NET_EPOLL_FLOW_H__	esf_net_epoll_flow.h	3;"	d
+__ESF_NET_INCL_H__	esf_net_incl.h	2;"	d
+__ESF_NET_MEM_POOL_H__	esf_net_mem_pool.h	3;"	d
+__ESF_NET_NETWORK_H__	esf_net_network.h	3;"	d
+__ESF_NET_NETWORK_IMP_H__	esf_net_network_imp.h	3;"	d
+__ESF_NET_RAW_CACHE_H__	esf_net_raw_cache.h	3;"	d
+__ESF_NET_SIMPLE_SOCK_H__	esf_net_simple_sock.h	3;"	d
+__ESF_NET_SOCKET_TCP_H__	esf_net_socket_tcp.h	3;"	d
+__ESF_NET_SOCKET_UDP_H__	esf_net_socket_udp.h	3;"	d
+__ESF_NET_SOCK_H__	esf_net_sock.h	3;"	d
+_access	esf_net_raw_cache.h	/^			time_t _access;$/;"	m	class:esf::net::ConnCache
+_addr	esf_net_sock.h	/^		struct sockaddr_in _addr;$/;"	m	class:esf::net::CSocketAddr	typeref:struct:esf::net::CSocketAddr::sockaddr_in
+_addr	esf_net_socket_tcp.cpp	/^			struct sockaddr_in _addr;$/;"	m	class:esf::net::CSocketAddr	typeref:struct:esf::net::CSocketAddr::sockaddr_in	file:
+_allocated_size	esf_net_mem_pool.h	/^			unsigned _allocated_size;$/;"	m	class:esf::net::CMemPool
+_allocator	esf_net_network.h	/^	ptr<ConnAllocator> _allocator;$/;"	m	class:esf::net::ConnFactoryDrr
+_block_size	esf_net_raw_cache.h	/^			size_t _block_size;$/;"	m	class:esf::net::CRawCache
+_cache	esf_net_network_imp.h	/^	CBuffer _cache;$/;"	m	class:esf::net::CNBConn
+_cc	esf_net_accept_t.h	/^		CConnSet& _cc;$/;"	m	class:esf::net::CAcceptThread
+_close_protect	esf_net_socket_tcp.h	/^			bool _close_protect;$/;"	m	class:esf::net::CSocketTCP
+_data_head	esf_net_raw_cache.h	/^			unsigned _data_head;$/;"	m	class:esf::net::CRawCache
+_data_len	esf_net_raw_cache.h	/^			unsigned _data_len;$/;"	m	class:esf::net::CRawCache
+_epoll	esf_net_accept_t.h	/^		CEPollFlow& _epoll;$/;"	m	class:esf::net::CAcceptThread
+_errno	esf_net_epoll_flow.h	/^			int _errno;$/;"	m	class:esf::net::CEPollFlowResult
+_events	esf_net_epoll_flow.h	/^			epoll_event* _events;$/;"	m	class:esf::net::CEPollFlow
+_events	esf_net_epoll_flow.h	/^			epoll_event* _events;$/;"	m	class:esf::net::CEPollFlowResult
+_fd	esf_net_epoll_flow.h	/^			int _fd;$/;"	m	class:esf::net::CEPollFlow
+_fd	esf_net_raw_cache.h	/^			int _fd;$/;"	m	class:esf::net::ConnCache
+_flow	esf_net_accept_t.h	/^		unsigned _flow;$/;"	m	class:esf::net::CAcceptThread
+_flow	esf_net_raw_cache.h	/^			unsigned _flow;$/;"	m	class:esf::net::ConnCache
+_flow2stconn	esf_net_conn_map.h	/^	std::map<unsigned, stconn> _flow2stconn;$/;"	m	class:esf::net::ConnMap
+_flow_2_data	esf_net_cconn.h	/^		std::map<unsigned, ConnCache*> _flow_2_data;	\/\/	the ugly duplex mapping!!$/;"	m	class:esf::net::CConnSet
+_free	esf_net_mem_pool.h	/^			mml _free;$/;"	m	class:esf::net::CMemPool
+_func	esf_net_cconn.h	/^		check_complete _func;$/;"	m	class:esf::net::CConnSet
+_guardian	esf_net_sock.h	/^	char _guardian[C_GUARD_SIZE];$/;"	m	class:esf::net::big_fd_set
+_handle	esf_net_accept_t.h	/^		CHandleConnect* _handle;$/;"	m	class:esf::net::CAcceptThread
+_host	esf_net_connector.h	/^	std::string _host;$/;"	m	class:esf::net::ConnectorImp
+_iConnType	esf_net_cconn.h	/^		int _iConnType;$/;"	m	class:esf::net::CConnSet
+_impl	esf_net_incl.h	/^	CHandleConnectImplBase *_impl;$/;"	m	class:CHandleConnect
+_index	esf_net_epoll_flow.h	/^				size_t _index;$/;"	m	class:esf::net::CEPollFlowResult::iterator
+_ip	esf_net_conn_map.h	/^	unsigned int _ip;$/;"	m	struct:esf::net::__anon1
+_ip	esf_net_conn_map.h	/^	unsigned int _ip;$/;"	m	struct:esf::net::__anon2
+_len	esf_net_sock.h	/^		socklen_t _len;$/;"	m	class:esf::net::CSocketAddr
+_len	esf_net_socket_tcp.cpp	/^			socklen_t _len;$/;"	m	class:esf::net::CSocketAddr	file:
+_maxFD	esf_net_epoll_flow.h	/^			size_t _maxFD;$/;"	m	class:esf::net::CEPollFlow
+_max_conn	esf_net_conn_map.h	/^	int _max_conn;$/;"	m	class:esf::net::ConnMap
+_mem	esf_net_raw_cache.h	/^			char* _mem;$/;"	m	class:esf::net::CRawCache
+_mp	esf_net_raw_cache.h	/^			esf::net::CMemPool& _mp;$/;"	m	class:esf::net::CRawCache
+_mutex	esf_net_cconn.h	/^		CMutex _mutex;$/;"	m	class:esf::net::CConnSet
+_pool_count	esf_net_raw_cache.h	/^			unsigned _pool_count;$/;"	m	class:esf::net::CRCPool
+_port	esf_net_conn_map.h	/^	unsigned short  _port;$/;"	m	struct:esf::net::__anon1
+_port	esf_net_conn_map.h	/^	unsigned short  _port;$/;"	m	struct:esf::net::__anon2
+_port	esf_net_connector.h	/^	unsigned short _port;$/;"	m	class:esf::net::ConnectorImp
+_r	esf_net_raw_cache.h	/^			CRawCache _r;$/;"	m	class:esf::net::ConnCache
+_rc	esf_net_raw_cache.h	/^			std::list<ConnCache*> _rc;$/;"	m	class:esf::net::CRCPool
+_rc_pool	esf_net_cconn.h	/^		CRCPool& _rc_pool;$/;"	m	class:esf::net::CConnSet
+_reactors	esf_net_driver_select.h	/^	std::deque< esf::sys::ptr< CReactor<fd_t> > > _reactors;$/;"	m	class:esf::net::CDriverSelect
+_reqrsp_type	esf_net_conn_map.h	/^	unsigned short _reqrsp_type;$/;"	m	struct:esf::net::__anon1
+_res	esf_net_epoll_flow.h	/^				CEPollFlowResult& _res;$/;"	m	class:esf::net::CEPollFlowResult::iterator
+_send_cache	esf_net_network_imp.h	/^	ptr<CBuffer> _send_cache;$/;"	m	class:esf::net::CNBConn
+_size	esf_net_epoll_flow.h	/^			size_t _size;$/;"	m	class:esf::net::CEPollFlowResult
+_socket	esf_net_accept_t.h	/^		CSocketTCP _socket;$/;"	m	class:esf::net::CAcceptThread
+_socket	esf_net_network_imp.h	/^	net::CSocket _socket;$/;"	m	class:esf::net::CNBConn
+_socket_fd	esf_net_sock.h	/^	int _socket_fd;$/;"	m	class:esf::net::CSocket
+_socket_fd	esf_net_socket_tcp.h	/^			int _socket_fd;$/;"	m	class:esf::net::CSocketTCP
+_socket_fd	esf_net_socket_udp.h	/^			int _socket_fd;$/;"	m	class:esf::net::CSocketUDP
+_stub	esf_net_mem_pool.h	/^			mms _stub;$/;"	m	class:esf::net::CMemPool
+_w	esf_net_raw_cache.h	/^			CRawCache _w;$/;"	m	class:esf::net::ConnCache
+_water_mark	esf_net_mem_pool.h	/^			unsigned _water_mark;$/;"	m	class:esf::net::CMemPool
+accept	esf_net_sock.h	/^inline void CSocket::accept(CSocket & client_socket)$/;"	f	class:esf::net::CSocket
+accept	esf_net_socket_tcp.cpp	/^		int CSocketTCP::accept(CSocketTCP & client_socket)$/;"	f	class:esf::net::CSocketTCP
+add	esf_net_conn_map.cpp	/^int ConnMap::add(unsigned queue_flow, stconn* pstconn)$/;"	f	class:ConnMap
+add	esf_net_driver_select.h	/^inline void CDriverSelect::add(esf::sys::ptr< CReactor<fd_t> > reactor)$/;"	f	class:esf::net::CDriverSelect
+add	esf_net_epoll_flow.h	/^			int add(int fd, unsigned flow, int flag)$/;"	f	class:esf::net::CEPollFlow
+addr	esf_net_sock.h	/^	struct sockaddr * addr(){return (struct sockaddr *)(&_addr);}$/;"	f	class:esf::net::CSocketAddr
+addr	esf_net_socket_tcp.cpp	/^			struct sockaddr * addr(){return (struct sockaddr *)(&_addr);}$/;"	f	class:esf::net::CSocketAddr
+addr_in	esf_net_sock.h	/^	struct sockaddr_in * addr_in(){return &_addr;}$/;"	f	class:esf::net::CSocketAddr
+addr_in	esf_net_socket_tcp.cpp	/^			struct sockaddr_in * addr_in(){return &_addr;}$/;"	f	class:esf::net::CSocketAddr
+allocate	esf_net_mem_pool.cpp	/^void* CMemPool::allocate(size_t size, size_t& result_size)$/;"	f	class:CMemPool
+allocate	esf_net_raw_cache.cpp	/^ConnCache* CRCPool::allocate()$/;"	f	class:CRCPool
+append	esf_net_raw_cache.cpp	/^void CRawCache::append(const char* data, size_t data_len)$/;"	f	class:CRawCache
+attach	esf_net_sock.h	/^	void attach(int fd){_socket_fd = fd;}$/;"	f	class:esf::net::CSocket
+attach	esf_net_socket_tcp.h	/^			void attach(int fd){if (_close_protect){close();_close_protect = true;} _socket_fd = fd;}$/;"	f	class:esf::net::CSocketTCP
+begin	esf_net_epoll_flow.h	/^			iterator begin(){return CEPollFlowResult::iterator(0, *this);}$/;"	f	class:esf::net::CEPollFlowResult
+big_fd_set	esf_net_sock.h	/^	big_fd_set(){FD_0();}$/;"	f	class:esf::net::big_fd_set
+big_fd_set	esf_net_sock.h	/^class big_fd_set$/;"	c	namespace:esf::net
+bind	esf_net_simple_sock.h	/^inline void CSimpleSocketTcp::bind(const std::string& addr, port_t port)$/;"	f	class:esf::net::CSimpleSocketTcp
+bind	esf_net_simple_sock.h	/^inline void CSimpleSocketUdp::bind(const std::string& addr, port_t port)$/;"	f	class:esf::net::CSimpleSocketUdp
+bind	esf_net_sock.h	/^inline void CSocket::bind(numeric_ipv4_t ip, port_t port)$/;"	f	class:esf::net::CSocket
+bind	esf_net_sock.h	/^inline void CSocket::bind(port_t port)$/;"	f	class:esf::net::CSocket
+bind	esf_net_socket_tcp.cpp	/^		int CSocketTCP::bind(const string &server_address, port_t port)$/;"	f	class:esf::net::CSocketTCP
+bind	esf_net_socket_udp.cpp	/^		int CSocketUDP::bind(const string &server_address, port_t port)$/;"	f	class:esf::net::CSocketUDP
+bind_any	esf_net_socket_tcp.cpp	/^		int CSocketTCP::bind_any(port_t port)$/;"	f	class:esf::net::CSocketTCP
+bind_any	esf_net_socket_udp.cpp	/^		int CSocketUDP::bind_any(port_t port)$/;"	f	class:esf::net::CSocketUDP
+check_complete	esf_net_cconn.h	/^	typedef int (*check_complete)(const void* data, unsigned data_len);$/;"	t	namespace:esf::net
+close	esf_net_sock.h	/^inline void CSocket::close()$/;"	f	class:esf::net::CSocket
+close	esf_net_socket_tcp.cpp	/^		void CSocketTCP::close()$/;"	f	class:esf::net::CSocketTCP
+close	esf_net_socket_udp.cpp	/^		void CSocketUDP::close()$/;"	f	class:esf::net::CSocketUDP
+conn_closed	esf_net_network.h	/^class conn_closed : public nw_ex {public: conn_closed(const std::string& s) : nw_ex(s){}};$/;"	c	namespace:esf::net
+conn_closed	esf_net_network.h	/^class conn_closed : public nw_ex {public: conn_closed(const std::string& s) : nw_ex(s){}};$/;"	f	class:esf::net::conn_closed
+conn_req_connect	esf_net_conn_map.h	/^	conn_req_connect = 0,		\/\/仅连接目标$/;"	e	enum:esf::net::reqrsp_type
+conn_req_disconnect	esf_net_conn_map.h	/^	conn_req_disconnect = 1,	\/\/与对方断开连接$/;"	e	enum:esf::net::reqrsp_type
+conn_req_send	esf_net_conn_map.h	/^	conn_req_send = 2,		\/\/发送到对方,自动建立连接,不发送连接建立通知$/;"	e	enum:esf::net::reqrsp_type
+conn_rsp_connect_failed	esf_net_conn_map.h	/^	conn_rsp_connect_failed = 21, \/\/通知连接失败$/;"	e	enum:esf::net::reqrsp_type
+conn_rsp_connect_ok	esf_net_conn_map.h	/^	conn_rsp_connect_ok = 20,		\/\/通知连接成功$/;"	e	enum:esf::net::reqrsp_type
+conn_rsp_data	esf_net_conn_map.h	/^	conn_rsp_data = 23,		\/\/携带响应数据$/;"	e	enum:esf::net::reqrsp_type
+conn_rsp_disconnected	esf_net_conn_map.h	/^	conn_rsp_disconnected = 22,	\/\/通知连接断裂$/;"	e	enum:esf::net::reqrsp_type
+conn_rsp_send_failed	esf_net_conn_map.h	/^	conn_rsp_send_failed=24   \/\/通知发送失败$/;"	e	enum:esf::net::reqrsp_type
+connect	esf_net_simple_sock.h	/^inline void CSimpleSocketTcp::connect(const std::string& addr, port_t port)$/;"	f	class:esf::net::CSimpleSocketTcp
+connect	esf_net_sock.h	/^inline void CSocket::connect(numeric_ipv4_t addr, port_t port)$/;"	f	class:esf::net::CSocket
+connect	esf_net_socket_tcp.cpp	/^		int CSocketTCP::connect(const string& address, port_t port)$/;"	f	class:esf::net::CSocketTCP
+connect	esf_net_socket_tcp.cpp	/^		int CSocketTCP::connect(ip_4byte_t address, port_t port)$/;"	f	class:esf::net::CSocketTCP
+connstatus	esf_net_conn_map.h	/^	short connstatus;$/;"	m	struct:esf::net::__anon2
+create	esf_net_epoll_flow.cpp	/^int CEPollFlow::create(size_t iMaxFD)$/;"	f	class:CEPollFlow
+create	esf_net_simple_sock.h	/^	void create(){CSocket::create(PF_INET, SOCK_DGRAM);}$/;"	f	class:esf::net::CSimpleSocketUdp
+create	esf_net_simple_sock.h	/^	void create(){CSocket::create(PF_INET, SOCK_STREAM);}$/;"	f	class:esf::net::CSimpleSocketTcp
+create	esf_net_sock.h	/^inline void CSocket::create(int protocol_family \/* = PF_INET *\/, int socket_type \/* = SOCK_STREAM *\/)$/;"	f	class:esf::net::CSocket
+create	esf_net_socket_tcp.cpp	/^	int CSocketTCP::create()$/;"	f	class:esf::net::CSocketTCP
+create	esf_net_socket_udp.cpp	/^		int CSocketUDP::create()$/;"	f	class:esf::net::CSocketUDP
+ctl	esf_net_epoll_flow.cpp	/^int CEPollFlow::ctl(int fd, unsigned flow, int epollAction, int flag)$/;"	f	class:CEPollFlow
+data	esf_net_raw_cache.cpp	/^char* CRawCache::data()$/;"	f	class:CRawCache
+data_len	esf_net_raw_cache.cpp	/^unsigned CRawCache::data_len(){return _data_len;}$/;"	f	class:CRawCache
+del	esf_net_driver_select.h	/^inline void CDriverSelect::del(fd_t fd)$/;"	f	class:esf::net::CDriverSelect
+delconn	esf_net_conn_map.cpp	/^int ConnMap::delconn(unsigned queue_flow)$/;"	f	class:ConnMap
+deque_it	esf_net_driver_select.h	/^	typedef std::deque< esf::sys::ptr< CReactor<fd_t> > >::iterator deque_it;$/;"	t	class:esf::net::CDriverSelect
+detach	esf_net_socket_tcp.h	/^			void detach(){_close_protect = false;}$/;"	f	class:esf::net::CSocketTCP
+detatch	esf_net_socket_udp.cpp	/^		void CSocketUDP::detatch()$/;"	f	class:esf::net::CSocketUDP
+drive	esf_net_driver_select.h	/^inline void CDriverSelect::drive()$/;"	f	class:esf::net::CDriverSelect
+end	esf_net_epoll_flow.h	/^			iterator end(){return CEPollFlowResult::iterator(_size, *this);}$/;"	f	class:esf::net::CEPollFlowResult
+error	esf_net_epoll_flow.h	/^			int error(){return _errno;}$/;"	f	class:esf::net::CEPollFlowResult
+esf	esf_net_accept_t.h	/^namespace esf { namespace net {$/;"	n
+esf	esf_net_cconn.h	/^namespace esf{ namespace net$/;"	n
+esf	esf_net_conn_map.h	/^namespace esf{ namespace net{$/;"	n
+esf	esf_net_connector.h	/^namespace esf{namespace net{$/;"	n
+esf	esf_net_driver.h	/^namespace esf { namespace net{$/;"	n
+esf	esf_net_driver_select.h	/^namespace esf{namespace net{	\/\/	namespace$/;"	n
+esf	esf_net_epoll_flow.h	/^namespace esf {	namespace net {$/;"	n
+esf	esf_net_mem_pool.h	/^namespace esf {	namespace net {$/;"	n
+esf	esf_net_network.h	/^namespace esf{namespace net{$/;"	n
+esf	esf_net_network_imp.h	/^namespace esf{namespace net{$/;"	n
+esf	esf_net_raw_cache.h	/^namespace esf { namespace net {$/;"	n
+esf	esf_net_simple_sock.h	/^namespace esf{namespace net{$/;"	n
+esf	esf_net_sock.h	/^namespace esf{namespace net{$/;"	n
+esf	esf_net_socket_tcp.cpp	/^namespace esf {	namespace net {$/;"	n	file:
+esf	esf_net_socket_tcp.h	/^namespace esf { namespace net {$/;"	n
+esf	esf_net_socket_udp.cpp	/^namespace esf$/;"	n	file:
+esf	esf_net_socket_udp.h	/^namespace esf$/;"	n
+extend	esf_net_mem_pool.cpp	/^int CMemPool::extend(size_t size, std::list<void*>* l, std::set<void*>* s)$/;"	f	class:CMemPool
+extend_new_size	esf_net_mem_pool.cpp	/^int CMemPool::extend_new_size(size_t size)$/;"	f	class:CMemPool
+family_t	esf_net_sock.h	/^typedef sa_family_t family_t;$/;"	t	namespace:esf::net
+family_t	esf_net_socket_tcp.cpp	/^	typedef sa_family_t family_t;		\/\/	IF_INET$/;"	t	namespace:esf::net	file:
+fd	esf_net_epoll_flow.cpp	/^int CEPollFlowResult::iterator::fd()$/;"	f	class:CEPollFlowResult::iterator
+fd	esf_net_sock.h	/^	int fd() const {return _socket_fd;}$/;"	f	class:esf::net::CSocket
+fd	esf_net_socket_tcp.h	/^			int fd() const {return _socket_fd;};$/;"	f	class:esf::net::CSocketTCP
+fd	esf_net_socket_udp.h	/^			int fd() const {return _socket_fd;};$/;"	f	class:esf::net::CSocketUDP
+fd_t	esf_net_driver_select.h	/^typedef int fd_t;$/;"	t	namespace:esf::net
+fit_block_size	esf_net_mem_pool.h	/^			size_t fit_block_size(unsigned size)$/;"	f	class:esf::net::CMemPool
+fit_extend_set	esf_net_mem_pool.cpp	/^inline size_t CMemPool::fit_extend_set(unsigned size)$/;"	f	class:CMemPool
+flow	esf_net_epoll_flow.cpp	/^unsigned CEPollFlowResult::iterator::flow()$/;"	f	class:CEPollFlowResult::iterator
+get_conn_frm_flow	esf_net_conn_map.cpp	/^stconn* ConnMap::get_conn_frm_flow(unsigned queue_flow)$/;"	f	class:ConnMap
+get_family	esf_net_sock.h	/^	family_t get_family(){return _addr.sin_family;}$/;"	f	class:esf::net::CSocketAddr
+get_family	esf_net_socket_tcp.cpp	/^			family_t get_family(){return _addr.sin_family;}$/;"	f	class:esf::net::CSocketAddr
+get_fd_set	esf_net_sock.h	/^	fd_set* get_fd_set(){return (fd_set*)&_guardian;}$/;"	f	class:esf::net::big_fd_set
+get_numeric_ipv4	esf_net_sock.h	/^	numeric_ipv4_t get_numeric_ipv4(){return _addr.sin_addr.s_addr;}$/;"	f	class:esf::net::CSocketAddr
+get_numeric_ipv4	esf_net_socket_tcp.cpp	/^			ip_4byte_t get_numeric_ipv4(){return _addr.sin_addr.s_addr;}$/;"	f	class:esf::net::CSocketAddr
+get_peer_ip	esf_net_simple_sock.h	/^inline std::string CSimpleSocketTcp::get_peer_ip()$/;"	f	class:esf::net::CSimpleSocketTcp
+get_peer_name	esf_net_sock.h	/^inline void CSocket::get_peer_name(numeric_ipv4_t & peer_address, port_t & peer_port)$/;"	f	class:esf::net::CSocket
+get_peer_name	esf_net_socket_tcp.cpp	/^		int CSocketTCP::get_peer_name(ip_4byte_t& peer_address, port_t& peer_port)$/;"	f	class:esf::net::CSocketTCP
+get_peer_name	esf_net_socket_tcp.cpp	/^		int CSocketTCP::get_peer_name(string & peer_address, port_t & peer_port)$/;"	f	class:esf::net::CSocketTCP
+get_peer_port	esf_net_simple_sock.h	/^inline port_t CSimpleSocketTcp::get_peer_port()$/;"	f	class:esf::net::CSimpleSocketTcp
+get_port	esf_net_sock.h	/^	port_t get_port(){return ntohs(_addr.sin_port);}$/;"	f	class:esf::net::CSocketAddr
+get_port	esf_net_socket_tcp.cpp	/^			port_t get_port(){return ntohs(_addr.sin_port);}$/;"	f	class:esf::net::CSocketAddr
+get_sock_ip	esf_net_simple_sock.h	/^inline std::string CSimpleSocketTcp::get_sock_ip()$/;"	f	class:esf::net::CSimpleSocketTcp
+get_sock_name	esf_net_sock.h	/^inline void CSocket::get_sock_name(numeric_ipv4_t& socket_address, port_t & socket_port)$/;"	f	class:esf::net::CSocket
+get_sock_name	esf_net_socket_tcp.cpp	/^		int CSocketTCP::get_sock_name(ip_4byte_t& socket_address, port_t & socket_port)$/;"	f	class:esf::net::CSocketTCP
+get_sock_name	esf_net_socket_tcp.cpp	/^		int CSocketTCP::get_sock_name(string & socket_address, port_t & socket_port)$/;"	f	class:esf::net::CSocketTCP
+get_sock_port	esf_net_simple_sock.h	/^inline port_t CSimpleSocketTcp::get_sock_port()$/;"	f	class:esf::net::CSimpleSocketTcp
+get_sockerror	esf_net_sock.h	/^inline int CSocket::get_sockerror()$/;"	f	class:esf::net::CSocket
+handle_connect	esf_net_incl.h	/^	virtual int handle_connect(unsigned flow){ return 0;}$/;"	f	class:CHandleConnect
+ignore_pipe_signal	esf_net_sock.h	/^inline void CSocket::ignore_pipe_signal()$/;"	f	class:esf::net::CSocket
+in_n2s	esf_net_simple_sock.h	/^inline std::string in_n2s(numeric_ipv4_t addr)$/;"	f	namespace:esf::net
+in_n2s	esf_net_socket_tcp.cpp	/^	string CSocketAddr::in_n2s(ip_4byte_t addr)$/;"	f	class:esf::net::CSocketAddr
+in_s2n	esf_net_simple_sock.h	/^inline numeric_ipv4_t in_s2n(const std::string& addr)$/;"	f	namespace:esf::net
+in_s2n	esf_net_socket_tcp.cpp	/^	int CSocketAddr::in_s2n(const string& addr, ip_4byte_t& addr_4byte)$/;"	f	class:esf::net::CSocketAddr
+init	esf_net_incl.h	/^	void init(CHandleConnectImplBase *impl){_impl = impl;}$/;"	f	class:CHandleConnect
+ip_4byte_t	esf_net_socket_tcp.h	/^	typedef in_addr_t ip_4byte_t;	\/\/	unsigned int$/;"	t	namespace:esf::net
+ip_4byte_t	esf_net_socket_udp.h	/^		typedef in_addr_t ip_4byte_t;	\/\/	unsigned int$/;"	t	namespace:esf::net
+iterator	esf_net_cconn.h	/^		typedef std::map<unsigned, ConnCache*>::iterator iterator;$/;"	t	class:esf::net::CConnSet
+iterator	esf_net_epoll_flow.h	/^				iterator(const iterator& right)$/;"	f	class:esf::net::CEPollFlowResult::iterator
+iterator	esf_net_epoll_flow.h	/^				iterator(size_t index, CEPollFlowResult& res)$/;"	f	class:esf::net::CEPollFlowResult::iterator
+iterator	esf_net_epoll_flow.h	/^			class iterator$/;"	c	class:esf::net::CEPollFlowResult
+lastavtive	esf_net_conn_map.h	/^	int lastavtive;$/;"	m	struct:esf::net::__anon2
+length	esf_net_sock.h	/^	socklen_t& length(){return _len;}$/;"	f	class:esf::net::CSocketAddr
+length	esf_net_socket_tcp.cpp	/^			socklen_t& length(){return _len;}$/;"	f	class:esf::net::CSocketAddr
+listen	esf_net_sock.h	/^inline void CSocket::listen(int backlog \/*=32*\/)$/;"	f	class:esf::net::CSocket
+listen	esf_net_socket_tcp.cpp	/^		int CSocketTCP::listen()$/;"	f	class:esf::net::CSocketTCP
+mml	esf_net_mem_pool.h	/^			typedef std::map<unsigned, std::list<void*>*> mml;$/;"	t	class:esf::net::CMemPool
+mms	esf_net_mem_pool.h	/^			typedef std::map<unsigned, std::set<void*>*> mms;$/;"	t	class:esf::net::CMemPool
+modify	esf_net_epoll_flow.h	/^			int modify(int fd, unsigned flow, int flag)$/;"	f	class:esf::net::CEPollFlow
+net	esf_net_accept_t.h	/^namespace esf { namespace net {$/;"	n	namespace:esf
+net	esf_net_cconn.h	/^namespace esf{ namespace net$/;"	n	namespace:esf
+net	esf_net_conn_map.h	/^namespace esf{ namespace net{$/;"	n	namespace:esf
+net	esf_net_connector.h	/^namespace esf{namespace net{$/;"	n	namespace:esf
+net	esf_net_driver.h	/^namespace esf { namespace net{$/;"	n	namespace:esf
+net	esf_net_driver_select.h	/^namespace esf{namespace net{	\/\/	namespace$/;"	n	namespace:esf
+net	esf_net_epoll_flow.h	/^namespace esf {	namespace net {$/;"	n	namespace:esf
+net	esf_net_mem_pool.h	/^namespace esf {	namespace net {$/;"	n	namespace:esf
+net	esf_net_network.h	/^namespace esf{namespace net{$/;"	n	namespace:esf
+net	esf_net_network_imp.h	/^namespace esf{namespace net{$/;"	n	namespace:esf
+net	esf_net_raw_cache.h	/^namespace esf { namespace net {$/;"	n	namespace:esf
+net	esf_net_simple_sock.h	/^namespace esf{namespace net{$/;"	n	namespace:esf
+net	esf_net_sock.h	/^namespace esf{namespace net{$/;"	n	namespace:esf
+net	esf_net_socket_tcp.cpp	/^namespace esf {	namespace net {$/;"	n	namespace:esf	file:
+net	esf_net_socket_tcp.h	/^namespace esf { namespace net {$/;"	n	namespace:esf
+net	esf_net_socket_udp.cpp	/^	namespace net$/;"	n	namespace:esf	file:
+net	esf_net_socket_udp.h	/^	namespace net$/;"	n	namespace:esf
+numeric_ipv4_t	esf_net_sock.h	/^typedef in_addr_t numeric_ipv4_t;$/;"	t	namespace:esf::net
+nw_ex	esf_net_network.h	/^class nw_ex:public bt_ex{public: nw_ex(const std::string& s):bt_ex(s){}};$/;"	c	namespace:esf::net
+nw_ex	esf_net_network.h	/^class nw_ex:public bt_ex{public: nw_ex(const std::string& s):bt_ex(s){}};$/;"	f	class:esf::net::nw_ex
+open	esf_net_accept_t.cpp	/^int CAcceptThread::open(const string& bind_ip, unsigned short bind_port)$/;"	f	class:CAcceptThread
+operator !=	esf_net_epoll_flow.h	/^				bool operator !=(const iterator& right)$/;"	f	class:esf::net::CEPollFlowResult::iterator
+operator ++	esf_net_epoll_flow.h	/^				iterator& operator ++(){_index++; return *this;}$/;"	f	class:esf::net::CEPollFlowResult::iterator
+operator ++	esf_net_epoll_flow.h	/^				iterator& operator ++(int){_index++; return *this;}$/;"	f	class:esf::net::CEPollFlowResult::iterator
+operator ->	esf_net_epoll_flow.h	/^				epoll_event* operator->(){return &_res._events[_index];}$/;"	f	class:esf::net::CEPollFlowResult::iterator
+operator =	esf_net_epoll_flow.h	/^			CEPollFlowResult& operator=(const CEPollFlowResult& right)$/;"	f	class:esf::net::CEPollFlowResult
+operator ==	esf_net_epoll_flow.h	/^				bool operator ==(const iterator& right)$/;"	f	class:esf::net::CEPollFlowResult::iterator
+port_t	esf_net_sock.h	/^typedef uint16_t port_t;$/;"	t	namespace:esf::net
+port_t	esf_net_socket_tcp.h	/^	typedef uint16_t port_t;		\/\/	unsigned short$/;"	t	namespace:esf::net
+port_t	esf_net_socket_udp.h	/^		typedef uint16_t port_t;		\/\/	unsigned short$/;"	t	namespace:esf::net
+pre_allocate	esf_net_raw_cache.cpp	/^int CRCPool::pre_allocate(unsigned pool_size, CMemPool& mp)$/;"	f	class:CRCPool
+real_run	esf_net_accept_t.cpp	/^void CAcceptThread::real_run()$/;"	f	class:CAcceptThread
+receive	esf_net_sock.h	/^inline int CSocket::receive(void *buf, size_t len, int flag \/*=0*\/)$/;"	f	class:esf::net::CSocket
+receive	esf_net_socket_tcp.cpp	/^		int CSocketTCP::receive(void *buf, size_t buf_size$/;"	f	class:esf::net::CSocketTCP
+receive_from	esf_net_simple_sock.h	/^inline int CSimpleSocketUdp::receive_from(void * buf, size_t len,$/;"	f	class:esf::net::CSimpleSocketUdp
+receive_from	esf_net_sock.h	/^inline int CSocket::receive_from(void * buf, size_t len, numeric_ipv4_t& from_address,$/;"	f	class:esf::net::CSocket
+recvfrom	esf_net_socket_udp.cpp	/^		int CSocketUDP::recvfrom(	void * buf,$/;"	f	class:esf::net::CSocketUDP
+recvfrom	esf_net_socket_udp.cpp	/^		int CSocketUDP::recvfrom(void * buf, size_t buf_len)$/;"	f	class:esf::net::CSocketUDP
+recycle	esf_net_mem_pool.cpp	/^int CMemPool::recycle(void* mem, size_t mem_size)$/;"	f	class:CMemPool
+recycle	esf_net_raw_cache.cpp	/^void CRCPool::recycle(ConnCache* rc)$/;"	f	class:CRCPool
+release	esf_net_mem_pool.cpp	/^int CMemPool::release(size_t size,  list<void*>* l, set<void*>* s)$/;"	f	class:CMemPool
+release_size	esf_net_mem_pool.cpp	/^int CMemPool::release_size(size_t mem_size)$/;"	f	class:CMemPool
+release_size	esf_net_mem_pool.cpp	/^unsigned CMemPool::release_size(size_t block_size, unsigned free_count, unsigned stub_count)$/;"	f	class:CMemPool
+reply	esf_net_incl.h	/^	int reply(unsigned flow, const char* data, unsigned data_len)$/;"	f	class:CHandleConnect
+reqrsp_type	esf_net_conn_map.h	/^enum reqrsp_type$/;"	g	namespace:esf::net
+run	esf_net_accept_t.cpp	/^void* CAcceptThread::run(void* instance)$/;"	f	class:CAcceptThread
+send	esf_net_sock.h	/^inline int CSocket::send(const void *buf, size_t len, int flag \/*=0*\/)$/;"	f	class:esf::net::CSocket
+send	esf_net_socket_tcp.cpp	/^		int CSocketTCP::send(const void *buf, size_t buf_size$/;"	f	class:esf::net::CSocketTCP
+send_to	esf_net_simple_sock.h	/^inline int CSimpleSocketUdp::send_to(const void *msg, size_t len,$/;"	f	class:esf::net::CSimpleSocketUdp
+send_to	esf_net_sock.h	/^inline int CSocket::send_to(const void *msg, size_t len,$/;"	f	class:esf::net::CSocket
+sendto	esf_net_socket_udp.cpp	/^		int CSocketUDP::sendto(	const void * buf,$/;"	f	class:esf::net::CSocketUDP
+sendto	esf_net_socket_udp.cpp	/^		int CSocketUDP::sendto(	int sock_fd,$/;"	f	class:esf::net::CSocketUDP
+set_family	esf_net_sock.h	/^	void set_family(family_t f){_addr.sin_family = f;}$/;"	f	class:esf::net::CSocketAddr
+set_family	esf_net_socket_tcp.cpp	/^			void set_family(family_t f){_addr.sin_family = f;}$/;"	f	class:esf::net::CSocketAddr
+set_nonblock	esf_net_sock.h	/^inline void CSocket::set_nonblock()$/;"	f	class:esf::net::CSocket
+set_nonblock	esf_net_socket_tcp.cpp	/^		int CSocketTCP::set_nonblock()$/;"	f	class:esf::net::CSocketTCP
+set_nonblock	esf_net_socket_udp.cpp	/^		int CSocketUDP::set_nonblock()$/;"	f	class:esf::net::CSocketUDP
+set_numeric_ipv4	esf_net_sock.h	/^	void set_numeric_ipv4(numeric_ipv4_t ip){_addr.sin_addr.s_addr = ip;}$/;"	f	class:esf::net::CSocketAddr
+set_numeric_ipv4	esf_net_socket_tcp.cpp	/^			void set_numeric_ipv4(ip_4byte_t ip){_addr.sin_addr.s_addr = ip;}$/;"	f	class:esf::net::CSocketAddr
+set_port	esf_net_sock.h	/^	void set_port(port_t port){_addr.sin_port = htons(port);}$/;"	f	class:esf::net::CSocketAddr
+set_port	esf_net_socket_tcp.cpp	/^			void set_port(port_t port){_addr.sin_port = htons(port);}$/;"	f	class:esf::net::CSocketAddr
+set_reuseaddr	esf_net_sock.h	/^inline void CSocket::set_reuseaddr()$/;"	f	class:esf::net::CSocket
+set_reuseaddr	esf_net_socket_tcp.cpp	/^		int CSocketTCP::set_reuseaddr()$/;"	f	class:esf::net::CSocketTCP
+shutdown	esf_net_sock.h	/^inline void CSocket::shutdown(int how \/*=SHUT_WR*\/)$/;"	f	class:esf::net::CSocket
+shutdown	esf_net_socket_tcp.cpp	/^		int CSocketTCP::shutdown()$/;"	f	class:esf::net::CSocketTCP
+skip	esf_net_raw_cache.cpp	/^void CRawCache::skip(unsigned length)$/;"	f	class:CRawCache
+socket_again	esf_net_sock.h	/^class socket_again: public socket_error$/;"	c	namespace:esf::net
+socket_again	esf_net_sock.h	/^{public:socket_again(const std::string& err_str):socket_error(err_str){}};$/;"	f	class:esf::net::socket_again
+socket_error	esf_net_sock.h	/^class socket_error: public esf::sys::bt_ex$/;"	c	namespace:esf::net
+socket_error	esf_net_sock.h	/^{public:socket_error(const std::string& err_str) : esf::sys::bt_ex(err_str){}};$/;"	f	class:esf::net::socket_error
+socket_intr	esf_net_sock.h	/^class socket_intr : public socket_error$/;"	c	namespace:esf::net
+socket_intr	esf_net_sock.h	/^{public:socket_intr(const std::string& err_str):socket_error(err_str){}};$/;"	f	class:esf::net::socket_intr
+socket_is_ok	esf_net_sock.h	/^	bool socket_is_ok() const {return (_socket_fd != INVALID_SOCKET);}$/;"	f	class:esf::net::CSocket
+socket_is_ok	esf_net_socket_tcp.h	/^			bool socket_is_ok() const {return (_socket_fd != INVALID_SOCKET);}$/;"	f	class:esf::net::CSocketTCP
+socket_is_ok	esf_net_socket_udp.h	/^			bool socket_is_ok() const {return (_socket_fd != INVALID_SOCKET);}$/;"	f	class:esf::net::CSocketUDP
+status_connected	esf_net_conn_map.h	/^	status_connected = 2,	$/;"	e	enum:esf::net::status_type
+status_connecting	esf_net_conn_map.h	/^	status_connecting = 0,		\/\/仅连接目标$/;"	e	enum:esf::net::status_type
+status_send_connecting	esf_net_conn_map.h	/^	status_send_connecting = 1,		\/\/仅连接目标$/;"	e	enum:esf::net::status_type
+status_type	esf_net_conn_map.h	/^enum status_type$/;"	g	namespace:esf::net
+stconn	esf_net_conn_map.h	/^}stconn;$/;"	t	namespace:esf::net	typeref:struct:esf::net::__anon2
+ull	esf_net_conn_map.h	/^typedef unsigned long long ull;$/;"	t	namespace:esf::net
+wait	esf_net_epoll_flow.cpp	/^CEPollFlowResult CEPollFlow::wait(int iTimeout)$/;"	f	class:CEPollFlow
+xprintf	esf_net_conn_map.cpp	/^void xprintf(const char *szFormat, ...){};$/;"	f
+~CAcceptor	esf_net_network.h	/^	virtual ~CAcceptor(){}$/;"	f	class:esf::net::CAcceptor
+~CConnSet	esf_net_cconn.cpp	/^CConnSet::~CConnSet()$/;"	f	class:CConnSet
+~CDriver	esf_net_driver.h	/^		virtual ~CDriver(){}$/;"	f	class:esf::net::CDriver
+~CDriverSelect	esf_net_driver_select.h	/^	virtual ~CDriverSelect(){}$/;"	f	class:esf::net::CDriverSelect
+~CEPollFlow	esf_net_epoll_flow.h	/^			~CEPollFlow(){if (_events) delete[] _events;}$/;"	f	class:esf::net::CEPollFlow
+~CEPollFlowResult	esf_net_epoll_flow.h	/^			~CEPollFlowResult(){}$/;"	f	class:esf::net::CEPollFlowResult
+~CHandleConnect	esf_net_incl.h	/^	virtual ~CHandleConnect(){};$/;"	f	class:CHandleConnect
+~CHandleConnectImplBase	esf_net_incl.h	/^	virtual ~CHandleConnectImplBase(){};$/;"	f	class:CHandleConnectImplBase
+~CMemPool	esf_net_mem_pool.h	/^			~CMemPool(){}$/;"	f	class:esf::net::CMemPool
+~CNBConn	esf_net_network_imp.h	/^	virtual ~CNBConn(){}$/;"	f	class:esf::net::CNBConn
+~CNBConnAlloc	esf_net_network_imp.h	/^	virtual ~CNBConnAlloc(){}$/;"	f	class:esf::net::CNBConnAlloc
+~CRCPool	esf_net_raw_cache.cpp	/^CRCPool::~CRCPool()$/;"	f	class:CRCPool
+~CRawCache	esf_net_raw_cache.cpp	/^CRawCache::~CRawCache(){}$/;"	f	class:CRawCache
+~CReactor	esf_net_driver.h	/^		virtual ~CReactor(){}$/;"	f	class:esf::net::CReactor
+~CSimpleSocketTcp	esf_net_simple_sock.h	/^	~CSimpleSocketTcp(){}$/;"	f	class:esf::net::CSimpleSocketTcp
+~CSimpleSocketUdp	esf_net_simple_sock.h	/^	~CSimpleSocketUdp(){}$/;"	f	class:esf::net::CSimpleSocketUdp
+~CSocket	esf_net_sock.h	/^	~CSocket(){close();}$/;"	f	class:esf::net::CSocket
+~CSocketTCP	esf_net_socket_tcp.h	/^			~CSocketTCP(){if (_close_protect)close();}$/;"	f	class:esf::net::CSocketTCP
+~CSocketUDP	esf_net_socket_udp.h	/^			~CSocketUDP()$/;"	f	class:esf::net::CSocketUDP
+~ConnAllocator	esf_net_network.h	/^	virtual ~ConnAllocator(){}$/;"	f	class:esf::net::ConnAllocator
+~ConnFactoryDrr	esf_net_network.h	/^	virtual ~ConnFactoryDrr(){}$/;"	f	class:esf::net::ConnFactoryDrr
+~ConnMap	esf_net_conn_map.cpp	/^ConnMap::~ConnMap()$/;"	f	class:ConnMap
+~Connection	esf_net_network.h	/^	virtual ~Connection(){}$/;"	f	class:esf::net::Connection
+~Connector	esf_net_network.h	/^	virtual ~Connector(){}$/;"	f	class:esf::net::Connector
+~ConnectorImp	esf_net_connector.h	/^	virtual ~ConnectorImp(){}$/;"	f	class:esf::net::ConnectorImp
+~big_fd_set	esf_net_sock.h	/^	~big_fd_set(){}$/;"	f	class:esf::net::big_fd_set

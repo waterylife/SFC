@@ -23,12 +23,12 @@ using namespace esf::ipc;
 using namespace std;
 
 /*
-conn¸ù¾İipcÖĞÌá¹©µÄflowÎ¨Ò»È·¶¨Ò»¸öÁ¬½Ó£¬²»Í¬µÄflow²úÉú²»Í¬µÄ
-Á¬½Ó(¼´Ê¹ip portÒ»Ñù),Ê¹ÓÃÕßÓĞÒåÎñÎ¬»¤Õâ¸öflow,»òÓÃdisconnectÃüÁî¹Ø±ÕÕâ
-¸öflow
+connæ ¹æ®ipcä¸­æä¾›çš„flowå”¯ä¸€ç¡®å®šä¸€ä¸ªè¿æ¥ï¼Œä¸åŒçš„flowäº§ç”Ÿä¸åŒçš„
+è¿æ¥(å³ä½¿ip portä¸€æ ·),ä½¿ç”¨è€…æœ‰ä¹‰åŠ¡ç»´æŠ¤è¿™ä¸ªflow,æˆ–ç”¨disconnectå‘½ä»¤å…³é—­è¿™
+ä¸ªflow
 
-Èç¹ûµ½Í¬Ò»¸öipÖ»ÓĞÒ»¸öÁ¬½ÓµÄ»°,flow=ip¼´¿É
-µ±Á¬½ÓÊı³¬¹ımax_connÊ±½øĞĞ³¬Ê±ÇåÀí£¬³¬Ê±Ê±¼ä180Ãë
+å¦‚æœåˆ°åŒä¸€ä¸ªipåªæœ‰ä¸€ä¸ªè¿æ¥çš„è¯,flow=ipå³å¯
+å½“è¿æ¥æ•°è¶…è¿‡max_connæ—¶è¿›è¡Œè¶…æ—¶æ¸…ç†ï¼Œè¶…æ—¶æ—¶é—´180ç§’
 */
 
 static const unsigned C_TMP_BUF_LEN = 128*1024*1024;
@@ -111,7 +111,7 @@ int main(int argc, char* argv[])
 	
 	for(;;)
 	{
-		//³¬Ê±´¦Àí
+		//è¶…æ—¶å¤„ç†
 		std::vector<unsigned> vec_key;
 		conn_map.GetExpire(vec_key);
 		for(int i=0;i<(int)vec_key.size();i++)
@@ -121,7 +121,7 @@ int main(int argc, char* argv[])
 			cc->CloseFlow(vec_key[i]);
 		}
 		
-		//´¦ÀíÍøÂç°ü
+		//å¤„ç†ç½‘ç»œåŒ…
 		CEPollFlowResult result = epoll->wait(1);
 		for(CEPollFlowResult::iterator it = result.begin()
 			; it != result.end()
@@ -139,7 +139,7 @@ int main(int argc, char* argv[])
 			conn_hd._ip = _pstconn->_ip;
 			conn_hd._port = _pstconn->_port;
 			
-			//¶ÏÁ¬
+			//æ–­è¿
 			if (!(it->events & (EPOLLOUT|EPOLLIN)))
 			{
 				conn_map.delconn(flow);	
@@ -148,10 +148,10 @@ int main(int argc, char* argv[])
 				continue;
 			}
 
-			//Á¬½Ó³É¹¦£¬»ò¿É·¢ËÍ£¬connÒ»¶¨Ö»ÊÇ»º´æÀï¿É·¢ËÍµÄÊı¾İ
+			//è¿æ¥æˆåŠŸï¼Œæˆ–å¯å‘é€ï¼Œconnä¸€å®šåªæ˜¯ç¼“å­˜é‡Œå¯å‘é€çš„æ•°æ®
 			if (it->events & EPOLLOUT)
 			{	
-				//Ö÷¶¯Á¬½Ó,ÏòÉÏ²ã»ã±¨
+				//ä¸»åŠ¨è¿æ¥,å‘ä¸Šå±‚æ±‡æŠ¥
 				if (_pstconn->connstatus == status_connecting)
 				{
 					SAY("EPOLLOUT: flow %d connecting success, response connect_ok to client.\n",flow);
@@ -161,16 +161,16 @@ int main(int argc, char* argv[])
 					memcpy(recv_buffer,&conn_hd,CONN_HEADER_LEN);
 					rsp_mq->enqueue(recv_buffer, CONN_HEADER_LEN, flow);	
 
-					//È¡ÏûEPOLLOUT¼àÊÓ
+					//å–æ¶ˆEPOLLOUTç›‘è§†
 					epoll->modify(currfd, flow, EPOLLIN | EPOLLERR|EPOLLHUP|EPOLLET);
 				}
-				//Ö±½Ó·¢ËÍÁ¬½Ó²»ÉÏ±¨, connectingµÄ×´Ì¬µ±connectedÀ´´¦Àí
+				//ç›´æ¥å‘é€è¿æ¥ä¸ä¸ŠæŠ¥, connectingçš„çŠ¶æ€å½“connectedæ¥å¤„ç†
 				else if ((_pstconn->connstatus == status_send_connecting)
 				    || (_pstconn->connstatus == status_connected))
 				{
 					SAY("EPOLLOUT: flow %d send_connect success,  no response connect_ok to client.\n",flow);
 
-					//»º´æÀïµÄ·¢Ò»°Ñ
+					//ç¼“å­˜é‡Œçš„å‘ä¸€æŠŠ
 					// -E_NOT_FINDFD
 					// 0, send complete
 					// send_len > 0, send continue
@@ -187,13 +187,13 @@ int main(int argc, char* argv[])
 					}
                     else if(ret == 0)
                     {
-                        //»º´æ·¢ËÍÍê±Ï,È¥³ıEPOLLOUT
+                        //ç¼“å­˜å‘é€å®Œæ¯•,å»é™¤EPOLLOUT
                         epoll->modify(currfd, flow, EPOLLIN | EPOLLERR|EPOLLHUP|EPOLLET);
                     }
                     else
                     {
-                        //»º´æ·¢ËÍÎ´Íê±Ï,EPOLLOUT¼ÌĞø´æÔÚ
-                        //Èç¹ûE_NOT_FINDFD£¬epollÒÑ¾­×Ô¶¯µÄ½«¸ÃfdÉ¾³ıÁË,ÎŞĞè´¦Àí
+                        //ç¼“å­˜å‘é€æœªå®Œæ¯•,EPOLLOUTç»§ç»­å­˜åœ¨
+                        //å¦‚æœE_NOT_FINDFDï¼Œepollå·²ç»è‡ªåŠ¨çš„å°†è¯¥fdåˆ é™¤äº†,æ— éœ€å¤„ç†
                         assert(ret > 0 || ret == -E_NOT_FINDFD);
                     }					
 				}
@@ -205,7 +205,7 @@ int main(int argc, char* argv[])
 				continue;
 			}
 
-			//½ÓÊÕÏûÏ¢
+			//æ¥æ”¶æ¶ˆæ¯
 			//int connnect_failed=0;
 			int socket_need_close = 0;
 			for(unsigned i = 0; i < 10000; i++)
@@ -223,13 +223,13 @@ int main(int argc, char* argv[])
 				}
 				else if(ret == -E_NOT_FINDFD || ret == -EAGAIN)
 				{
-				    //Èç¹ûÊÇEAGAIN£¬Ìø³öÑ­»·£¬ÏÂÒ»ÂÖepoll¼¤»îºóÔÙRecv
-				    //Èç¹û»òÕßE_NOT_FINDFD£¬epollÒÑ¾­×Ô¶¯µÄ½«¸ÃfdÉ¾³ıÁË,ÎŞĞè´¦Àí
+				    //å¦‚æœæ˜¯EAGAINï¼Œè·³å‡ºå¾ªç¯ï¼Œä¸‹ä¸€è½®epollæ¿€æ´»åå†Recv
+				    //å¦‚æœæˆ–è€…E_NOT_FINDFDï¼Œepollå·²ç»è‡ªåŠ¨çš„å°†è¯¥fdåˆ é™¤äº†,æ— éœ€å¤„ç†
 					break;
 				}
 				else
 				{
-				    //È·¶¨ÊÕµ½ÁËÊı¾İ
+				    //ç¡®å®šæ”¶åˆ°äº†æ•°æ®
 					assert(ret > 0);
 				}
 			}
@@ -237,7 +237,7 @@ int main(int argc, char* argv[])
 			//if (connnect_failed)
 			//	continue;
 
-			//¶Á³ö
+			//è¯»å‡º
 			do
 			{
 				data_len = 0;
@@ -252,7 +252,7 @@ int main(int argc, char* argv[])
 					{		
 						conn_hd._reqrsp_type= conn_rsp_data;
 						
-						//×ªÂë
+						//Ã—ÂªÃ‚Ã«
 						unsigned conver_len = C_TMP_BUF_LEN;
 						ret = net2ipc_func(recv_buffer+CONN_HEADER_LEN,data_len,temp_buffer,conver_len);
 						if (ret == -1)
@@ -262,7 +262,7 @@ int main(int argc, char* argv[])
 						}
 						else if(ret == 1)
 						{
-							//Î´¸Ä±ä
+							//ÃÂ´Â¸Ã„Â±Ã¤
 							SAY("net2ipc_func not convert.\n");
 						}
 						else
@@ -305,8 +305,8 @@ int main(int argc, char* argv[])
 
 		//
 		//rsp queue
-		//´Ë´¦¹ÜµÀfdÃ»ÓĞ¼ÓÈëepoll£¬µ¥¶À´¦Àí
-		//´¦ÀíÀ´×ÔÇëÇó¹ÜµÀµÄÏûÏ¢
+		//Â´Ã‹Â´Â¦Â¹ÃœÂµÃ€fdÃƒÂ»Ã“ÃÂ¼Ã“ÃˆÃ«epollÂ£Â¬ÂµÂ¥Â¶Ã€Â´Â¦Ã€Ã­
+		//Â´Â¦Ã€Ã­Ã€Â´Ã—Ã”Ã‡Ã«Ã‡Ã³Â¹ÃœÂµÃ€ÂµÃ„ÃÃ»ÃÂ¢
 		for(unsigned i = 0; i < 10000; i++)
 		{
 			int ret = 0 ;
@@ -318,7 +318,7 @@ int main(int argc, char* argv[])
 				break;
 			}
 			
-			//×ªÂë
+			//Ã—ÂªÃ‚Ã«
 			unsigned conver_len = C_TMP_BUF_LEN-CONN_HEADER_LEN;
 			ret = ipc2net_func(recv_buffer+CONN_HEADER_LEN,data_len-CONN_HEADER_LEN,temp_buffer,conver_len);
 			if (ret == -1)
@@ -328,7 +328,7 @@ int main(int argc, char* argv[])
 			}
 			else if(ret == 1)
 			{
-				//Î´¸Ä±ä
+				//ÃÂ´Â¸Ã„Â±Ã¤
 				SAY("ipc2net_func not convert.\n");
 			}
 			else
@@ -343,7 +343,7 @@ int main(int argc, char* argv[])
 			
 			if (_pstconn)
 			{
-				//¹Ø±ÕÔ­ÓĞÁ¬½Ó
+				//Â¹Ã˜Â±Ã•Ã”Â­Ã“ÃÃÂ¬Â½Ã“
 				if ((_pstconn->_ip != pconn_hd->_ip) || (_pstconn->_port != pconn_hd->_port))	
 				{
 					cc->CloseFlow(queue_flow);
@@ -378,7 +378,7 @@ int main(int argc, char* argv[])
 						continue;
 					}
 					
-					//Á¬½Ó²¢¼ÓÈë×éÖĞ
+					//ÃÂ¬Â½Ã“Â²Â¢Â¼Ã“ÃˆÃ«Ã—Ã©Ã–Ã
 					stconn m_stconn;
 					m_stconn._ip = pconn_hd->_ip;
 					m_stconn._port = pconn_hd->_port;
@@ -407,7 +407,7 @@ int main(int argc, char* argv[])
 				{
 					SAY("req to disconnect %d:%d.\n",pconn_hd->_ip, pconn_hd->_port);
 
-					//×éÖĞÉ¾³ı
+					//Ã—Ã©Ã–ÃÃ‰Â¾Â³Ã½
 					ret = conn_map.delconn(queue_flow);
 					if (ret < 0)
 						continue;
@@ -415,7 +415,7 @@ int main(int argc, char* argv[])
 					cc->CloseFlow(queue_flow);
 				}
 				
-				//ÏìÓ¦
+				//ÃÃ¬Ã“Â¦
 				pconn_hd->_reqrsp_type = conn_rsp_disconnected;
 				memcpy(recv_buffer,pconn_hd,CONN_HEADER_LEN);
 				rsp_mq->enqueue(recv_buffer, CONN_HEADER_LEN, queue_flow);					
@@ -453,17 +453,17 @@ int main(int argc, char* argv[])
 					{
 						if((unsigned)ret < data_len - CONN_HEADER_LEN)  
 						{
-							//Î´·¢ËÍÍê£¬¼ÌĞø¼àÊÓEPOLLOUT£¬ÍøÂç·¢ÁËÒ»²¿·Ö
+							//ÃÂ´Â·Â¢Ã‹ÃÃÃªÂ£Â¬Â¼ÃŒÃÃ¸Â¼Ã ÃŠÃ“EPOLLOUTÂ£Â¬ÃÃ¸Ã‚Ã§Â·Â¢ÃÃ‹Ã’Â»Â²Â¿Â·Ã–
 							epoll->modify(icurrfd, queue_flow, EPOLLOUT|EPOLLIN | EPOLLERR|EPOLLHUP|EPOLLET);
 						}
 						else
 						{
-							//·¢ËÍÍê±Ï£¬ÍøÂç or cache¶¼·¢ËÍÍê
+							//Â·Â¢Ã‹ÃÃÃªÂ±ÃÂ£Â¬ÃÃ¸Ã‚Ã§ or cacheÂ¶Â¼Â·Â¢Ã‹ÃÃÃª
 							assert((unsigned)ret == data_len - CONN_HEADER_LEN);
 						}
 					}
 				}
-				else  //Ö®Ç°Ã»ÓĞ£¬ĞÂ½¨£¬²¢²»Í¨ÖªÉÏ²ãÏÈ½¨Á¢£¬¶øÊÇ×Ô¶¯½¨Á¢£¬Èç¹û½¨Á¢Ê§°ÜÔò¸æÖªÉÏ²ã
+				else  //Ã–Â®Ã‡Â°ÃƒÂ»Ã“ÃÂ£Â¬ÃÃ‚Â½Â¨Â£Â¬Â²Â¢Â²Â»ÃÂ¨Ã–ÂªÃ‰ÃÂ²Ã£ÃÃˆÂ½Â¨ÃÂ¢Â£Â¬Â¶Ã¸ÃŠÃ‡Ã—Ã”Â¶Â¯Â½Â¨ÃÂ¢Â£Â¬ÃˆÃ§Â¹Ã»Â½Â¨ÃÂ¢ÃŠÂ§Â°ÃœÃ”Ã²Â¸Ã¦Ã–ÂªÃ‰ÃÂ²Ã£
 				{
 					CSocketTCP socket;
 					socket.create();
@@ -471,7 +471,7 @@ int main(int argc, char* argv[])
 					ret = socket.connect(pconn_hd->_ip, pconn_hd->_port);
 					if ((ret != 0 )&& (ret != -EWOULDBLOCK) && (ret != -EINPROGRESS))
 					{
-						//ÏìÓ¦
+						//ÃÃ¬Ã“Â¦
 						pconn_hd->_reqrsp_type = conn_rsp_connect_failed;
 						memcpy(recv_buffer,pconn_hd,CONN_HEADER_LEN);
 						rsp_mq->enqueue(recv_buffer, CONN_HEADER_LEN, queue_flow);
@@ -480,7 +480,7 @@ int main(int argc, char* argv[])
 					}
 
 					SAY("connect first %d:%d before send.\n",pconn_hd->_ip, pconn_hd->_port);			
-					//Á¬½Ó²¢¼ÓÈë×éÖĞ
+					//ÃÂ¬Â½Ã“Â²Â¢Â¼Ã“ÃˆÃ«Ã—Ã©Ã–Ã
 					stconn m_stconn;
 					m_stconn._ip = pconn_hd->_ip;
 					m_stconn._port = pconn_hd->_port;
@@ -492,7 +492,7 @@ int main(int argc, char* argv[])
 						
 					cc->AddConn(socket.fd(), queue_flow);
 					
-					//·ÅÈë»º´æ
+					//Â·Ã…ÃˆÃ«Â»ÂºÂ´Ã¦
 					// -E_NOT_FINDFD
 					// 0, send failed or send not complete, add epollout
 					// 1, send complete
@@ -507,7 +507,7 @@ int main(int argc, char* argv[])
     				}
 					else
     				{
-    	                // ÒòÎªµ¥Ïß³Ì,¸Õ¸Õ¼ÓÈëµ½cc£¬²»¿ÉÄÜ³öÏÖ-E_NOT_FINDFD
+    	                // Ã’Ã²ÃÂªÂµÂ¥ÃÃŸÂ³ÃŒ,Â¸Ã•Â¸Ã•Â¼Ã“ÃˆÃ«ÂµÂ½ccÂ£Â¬Â²Â»Â¿Ã‰Ã„ÃœÂ³Ã¶ÃÃ–-E_NOT_FINDFD
     				    assert(false);
     				}
     				socket.detach();
