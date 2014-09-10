@@ -1,8 +1,17 @@
+/*
+* 二叉排序树实现
+*/
+
+#include <stack>
+
+using namespace std;
+
 template<class T>
 class BinSearchTreeNode
 {
 public:
 	T key;
+	bool flag; //用于后序非递归遍历
 	BinSearchTreeNode<T>* parent;
 	BinSearchTreeNode<T>* lchild;
 	BinSearchTreeNode<T>* rchild;
@@ -17,19 +26,35 @@ public:
 public:
 	BinSearchTree() : root(NULL) {}
 
-	BinSearchTreeNode<T>* bin_search(BinSearchTreeNode<T> root, T key) //递归形式
+	//非递归后序遍历销毁每个节点
+	~BinSearchTree()
 	{
-		if(NULL == root || key == root->key) {
-			return root;
-		}
-		else if(key < root->key) {
-			return search_cur(root->lchild);
-		}
+		stack<BinSearchTreeNode<T>*> s;
+		BinSearchTreeNode<T>* p = root;
 
-		return search_cur(root->rchild);
+		while(NULL != p || false == s.empty()) {
+			while(NULL != p) { //遍历左子树
+				p->flag = true; //标记为第一次访问
+				s.push(p);
+				p = p->lchild;
+			}
+
+			if(false == s.empty()) { //遍历右子树
+				p = s.top();
+				if(true == p->flag) { //标记为第二次访问
+					p->flag = false; 
+					p = p->rchild;
+				}
+				else { //第三次访问
+					delete p;
+					s.pop();
+					p = NULL;
+				}
+			}
+		} //while
 	}
 
-	BinSearchTreeNode<T>* bin_search(T key) //非递归形式
+	BinSearchTreeNode<T>* find_node(T key) //非递归形式
 	{
 		BinSearchTreeNode<T>* p = this->root;
 		while(NULL != p) {
@@ -37,30 +62,34 @@ public:
 			if(key < p->key) p = p->lchild;
 			else p = p->rchild;
 		}
+
 		return p;
 	}
 
-	BinSearchTreeNode<T>* bin_insert(T key)
+	//若树中存在相同的key，则新节点插在相同key节点的右子树上
+	BinSearchTreeNode<T>* insert_node(T key)
 	{
 		BinSearchTreeNode<T>* ins_node = new BinSearchTreeNode<T>;
 		ins_node->key = key;
 		ins_node->lchild = ins_node->rchild = NULL;
 
+		/*空树情形*/
 		if(NULL == root) {
 			root = ins_node;
 			root->parent = NULL;
 			return ins_node;
 		}
 
+		/*不为空树的情形*/
 		BinSearchTreeNode<T>* p = this->root;
 		BinSearchTreeNode<T>* q = p;
 		do {
 			p = q;
 			if(key < p->key) q = p->lchild;
 			else q = p->rchild;
-		} while(NULL != q);
+		} while(NULL != q); //直到q为空，停止循环
 
-		if(key < p->key) {
+		if(key < p->key) { 
 			p->lchild = ins_node;
 			ins_node->parent = p;
 		}
@@ -68,49 +97,128 @@ public:
 			p->rchild = ins_node;
 			ins_node->parent = p;
 		}
+
 		return ins_node;
 	}
 
-	void bin_delete(T key)
+	void delete_node(BinSearchTreeNode<T>* node)
 	{
-		BinSearchTreeNode<T>* del_node = bin_search(key);
+		if(NULL == node) return;
 
-		if(NULL == del_node->rchild || NULL == del_node->lchild) {
+		/*被删除节点最多只有一个子节点的情形*/
+		if(NULL == node->rchild || NULL == node->lchild) {
+			//找到被删除节点的子节点,可能为空
 			BinSearchTreeNode<T>* child = NULL;
-			if(NULL != del_node->rchild) child = del_node->rchild;
-			else if(NULL != del_node->lchild) child = del_node->lchild;
-			if(del_node->key < del_node->parent->key) del_node->parent->lchild = child;
-			else del_node->parent->rchild = child;
-			if(NULL != child) child->parent = del_node->parent;
-			delete del_node;
-			del_node = NULL;
-			return;
+			if(NULL != node->rchild) child = node->rchild;
+			else if(NULL != node->lchild) child = node->lchild;
+
+			//将被删除节点的子节点成为被删除节点的父节点的子节点
+			if(node->key < node->parent->key) node->parent->lchild = child;
+			else node->parent->rchild = child;
+			if(NULL != child) child->parent = node->parent;
+
+			//释放空间
+			delete node;
+			node = NULL;
+
+			return; //递归结束
 		}
 
-		BinSearchTreeNode<T>* successor = bin_successor(del_node);
-		del_node ->key = successor->key;
-		this->bin_delete(successor);
+		/*被删除节点有两个子节点的情形*/
+		BinSearchTreeNode<T>* successor = bin_successor(node); //找到被删除节点的后继节点
+		node->key = successor->key;
+		this->delete_node(successor); //转化为删除后继节点
 	}
 
-	void bin_delete(BinSearchTreeNode<T>* del_node)
+	//非递归先序遍历
+	void preorder_traverse(Fun fun)
 	{
-		if(NULL == del_node->rchild || NULL == del_node->lchild) {
-			BinSearchTreeNode<T>* child = NULL;
-			if(NULL != del_node->rchild) child = del_node->rchild;
-			else if(NULL != del_node->lchild) child = del_node->lchild;
-			if(del_node->key < del_node->parent->key) del_node->parent->lchild = child;
-			else del_node->parent->rchild = child;
-			if(NULL != child) child->parent = del_node ->parent;
-			delete del_node;
-			del_node = NULL;
+		stack<BinSearchTreeNode<T>*> s;
+		BinSearchTreeNode<T>* p = root;
 
+		while(NULL != p || false == s.empty()) {
+			while(NULL != p) {
+				fun(p);
+				s.push(p);
+				p = p->lchild;
+			}
+
+			if(false == s.empty()) {
+				p = s.top();
+				s.pop();
+				p = p->rchild;
+			}
 		}
 
-		BinSearchTreeNode<T>* successor = bin_successor(del_node);
-		del_node ->key = successor->key;
-		this->bin_delete(successor);
+		return;
 	}
 
+	//非递归中序遍历
+	void inorder_traverse(Fun fun)
+	{
+		stack<BinSearchTreeNode<T>*> s;
+		BinSearchTreeNode<T>* p = root;
+
+		while(NULL != p || false == s.empty()) {
+			while(NULL != p) {
+				s.push(p);
+				p = p->lchild;
+			}
+
+			if(false == s.empty()) {
+				p = s.top();
+				fun(p);
+				s.pop();
+				p = p->rchild;
+			}
+		}
+		
+		return;
+	}
+
+	//非递归后序遍历
+	void postorder_traverse(Fun fun)
+	{
+		stack<BinSearchTreeNode<T>*> s;
+		BinSearchTreeNode<T>* p = root;
+
+		while(NULL != p || false == s.empty()) {
+			while(NULL != p) { //遍历左子树
+				p->flag = true; //标记为第一次访问
+				s.push(p);
+				p = p->lchild;
+			}
+
+			if(false == s.empty()) { //遍历右子树
+				p = s.top();
+				if(true == p->flag) { //标记为第二次访问
+					p->flag = false; 
+					p = p->rchild;
+				}
+				else { //第三次访问
+					fun(p);
+					s.pop();
+					p = NULL;
+				}
+			}
+		} //while
+		
+		return;
+	}
+
+	//递归先序遍历
+	void preorder_traverse(BinSearchTreeNode<T>* root, Fun fun)
+	{	
+		if(NULL != root) {
+			fun(root);
+			preorder_traverse(root->lchild, fun);
+			preorder_traverse(root->rchild, fun);
+		}
+
+		return;
+	}
+
+	//递归中序遍历
 	void inorder_traverse(BinSearchTreeNode<T>* root, Fun fun)
 	{	
 		if(NULL != root) {
@@ -118,7 +226,20 @@ public:
 			fun(root);
 			inorder_traverse(root->rchild, fun);
 		}
-		// return NULL;
+
+		return;
+	}
+
+	//递归后序遍历
+	void postorder_traverse(BinSearchTreeNode<T>* root, Fun fun)
+	{	
+		if(NULL != root) {
+			postorder_traverse(root->lchild, fun);
+			postorder_traverse(root->rchild, fun);
+			fun(root);
+		}
+
+		return;
 	}
 
 private:

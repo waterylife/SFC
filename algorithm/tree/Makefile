@@ -3,7 +3,8 @@ CC  = gcc
 CXX = g++
 GCCVER := $(shell $(CC) -dumpversion | awk -F. '{ print $$1"."$$2}' )
 
-HOM=/Users/Shawn/Workspace/sfc
+# HOM=/Users/Shawn/Workspace/sfc
+HOM = /data/shawn/SFC
 
 #LIB += -lsppasync -lasync_epoll -lcore
 
