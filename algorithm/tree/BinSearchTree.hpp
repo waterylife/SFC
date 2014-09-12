@@ -2,6 +2,9 @@
 * 二叉排序树实现
 */
 
+#ifndef __BIN_SEARCH_TREE_H__
+#define __BIN_SEARCH_TREE_H__
+
 #include <stack>
 
 using namespace std;
@@ -242,7 +245,7 @@ public:
 		return;
 	}
 
-private:
+protected:
 	BinSearchTreeNode<T>* min_node(BinSearchTreeNode<T>* root)
 	{
 		BinSearchTreeNode<T>* p = root;
@@ -297,3 +300,5 @@ private:
 	}
 
 }; //BinSearchTree
+
+#endif

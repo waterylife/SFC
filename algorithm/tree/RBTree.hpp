@@ -3,6 +3,9 @@
 * 初始版本：20140615
 */
 
+#ifndef __RB_TREE_H__
+#define __RB_TREE_H__
+
 #include "common.h"
 #include <iostream>
 
@@ -335,3 +338,5 @@ private:
 		}
 	}
 };
+
+#endif
