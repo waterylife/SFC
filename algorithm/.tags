@@ -1,0 +1,69 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags (PN2 Edition)	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.6	//
+BinSearchTree	.\tree\BinSearchTree.hpp	/^	BinSearchTree() : root(NULL) {}$/;"	f	class:BinSearchTree
+BinSearchTree	.\tree\BinSearchTree.hpp	/^class BinSearchTree$/;"	c
+BinSearchTreeNode	.\tree\BinSearchTree.hpp	/^class BinSearchTreeNode$/;"	c
+EchoNode	.\tree\test_binsearchtree.cpp	/^typedef void (*EchoNode)(BinSearchTreeNode<int>* node);$/;"	t	file:
+EchoNode	.\tree\test_rbtree.cpp	/^typedef void (*EchoNode)(RBTreeNode<int>* node);$/;"	t	file:
+RBTree	.\tree\RBTree.hpp	/^	RBTree()$/;"	f	class:RBTree
+RBTree	.\tree\RBTree.hpp	/^class RBTree$/;"	c
+RBTreeNode	.\tree\RBTree.hpp	/^class RBTreeNode$/;"	c
+adjustArray	.\sort\sort.h	/^int adjustArray(T* ptr, int first, int last, commpFun commp)$/;"	f
+adjustHeapFixDown	.\sort\sort.h	/^int adjustHeapFixDown(T* ptr, int size, int index, commpFun commp)$/;"	f
+bin_delete	.\tree\BinSearchTree.hpp	/^	void bin_delete(BinSearchTreeNode<T>* del_node)$/;"	f	class:BinSearchTree
+bin_delete	.\tree\BinSearchTree.hpp	/^	void bin_delete(T key)$/;"	f	class:BinSearchTree
+bin_insert	.\tree\BinSearchTree.hpp	/^	BinSearchTreeNode<T>* bin_insert(T key)$/;"	f	class:BinSearchTree
+bin_search	.\tree\BinSearchTree.hpp	/^	BinSearchTreeNode<T>* bin_search(BinSearchTreeNode<T> root, T key) \/\/递归形式$/;"	f	class:BinSearchTree
+bin_search	.\tree\BinSearchTree.hpp	/^	BinSearchTreeNode<T>* bin_search(T key) \/\/非递归形式$/;"	f	class:BinSearchTree
+bin_search	.\tree\RBTree.hpp	/^	RBTreeNode<T>* bin_search(RBTreeNode<T> root, T key) \/\/递归形式$/;"	f	class:RBTree
+bin_search	.\tree\RBTree.hpp	/^	RBTreeNode<T>* bin_search(T key) \/\/非递归形式$/;"	f	class:RBTree
+bin_successor	.\tree\BinSearchTree.hpp	/^	BinSearchTreeNode<T>* bin_successor(BinSearchTreeNode<T>* node)$/;"	f	class:BinSearchTree
+bin_successor	.\tree\RBTree.hpp	/^	RBTreeNode<T>* bin_successor(RBTreeNode<T>* node)$/;"	f	class:RBTree
+color	.\tree\RBTree.hpp	/^	unsigned int color; \/\/0: red, 1: black$/;"	m	class:RBTreeNode
+echo_node	.\tree\test_binsearchtree.cpp	/^void echo_node(BinSearchTreeNode<int>* node)$/;"	f
+echo_node	.\tree\test_rbtree.cpp	/^void echo_node(RBTreeNode<int>* node)$/;"	f
+heap_sort	.\sort\sort.h	/^int heap_sort(T* ptr, int size, commpFun commp)$/;"	f
+inorder_traverse	.\tree\BinSearchTree.hpp	/^	void inorder_traverse(BinSearchTreeNode<T>* root, Fun fun)$/;"	f	class:BinSearchTree
+inorder_traverse	.\tree\RBTree.hpp	/^	void inorder_traverse(RBTreeNode<T>* root, VisitFun fun)$/;"	f	class:RBTree
+insert_sort	.\sort\sort.h	/^int insert_sort(boost::shared_ptr<T> sp, int size, commpFun commp)$/;"	f
+insert_sort2	.\sort\sort.h	/^int insert_sort2(T *ptr, int size, commpFun commp)$/;"	f
+key	.\tree\BinSearchTree.hpp	/^	T key;$/;"	m	class:BinSearchTreeNode
+key	.\tree\RBTree.hpp	/^	T key;$/;"	m	class:RBTreeNode
+lchild	.\tree\BinSearchTree.hpp	/^	BinSearchTreeNode<T>* lchild;$/;"	m	class:BinSearchTreeNode
+lchild	.\tree\RBTree.hpp	/^	RBTreeNode<T>* lchild;$/;"	m	class:RBTreeNode
+leaf	.\tree\RBTree.hpp	/^	RBTreeNode<T>* leaf;$/;"	m	class:RBTree
+left_rotate	.\tree\RBTree.hpp	/^	void left_rotate(RBTreeNode<T>* node)$/;"	f	class:RBTree
+main	.\sort\test.cpp	/^int main(int argc, char* argv[])$/;"	f
+main	.\tree\test_binsearchtree.cpp	/^int main()$/;"	f
+main	.\tree\test_rbtree.cpp	/^int main()$/;"	f
+max_node	.\tree\BinSearchTree.hpp	/^	BinSearchTreeNode<T>* max_node(BinSearchTreeNode<T>* root)$/;"	f	class:BinSearchTree
+max_node	.\tree\RBTree.hpp	/^	RBTreeNode<T>* max_node(RBTreeNode<T>* root)$/;"	f	class:RBTree
+mergeArray	.\sort\sort.h	/^int mergeArray(T* ptr, int first, int last, int mid, commpFun commp)$/;"	f
+mergeSort	.\sort\sort.h	/^int mergeSort(T* ptr, int first, int last, commpFun commp)$/;"	f
+merge_sort	.\sort\sort.h	/^int merge_sort(T* ptr, int size, commpFun commp)$/;"	f
+min_node	.\tree\BinSearchTree.hpp	/^	BinSearchTreeNode<T>* min_node(BinSearchTreeNode<T>* root)$/;"	f	class:BinSearchTree
+min_node	.\tree\RBTree.hpp	/^	RBTreeNode<T>* min_node(RBTreeNode<T>* root)$/;"	f	class:RBTree
+parent	.\tree\BinSearchTree.hpp	/^	BinSearchTreeNode<T>* parent;$/;"	m	class:BinSearchTreeNode
+parent	.\tree\RBTree.hpp	/^	RBTreeNode<T>* parent;$/;"	m	class:RBTreeNode
+pre_successor	.\tree\BinSearchTree.hpp	/^	BinSearchTreeNode<T>* pre_successor(BinSearchTreeNode<T>* node)$/;"	f	class:BinSearchTree
+pre_successor	.\tree\RBTree.hpp	/^	RBTreeNode<T>* pre_successor(RBTreeNode<T>* node)$/;"	f	class:RBTree
+preorder_traverse	.\tree\RBTree.hpp	/^	void preorder_traverse(RBTreeNode<T>* root, VisitFun fun)$/;"	f	class:RBTree
+quickSort	.\sort\sort.h	/^int quickSort(T* ptr, int first, int last, commpFun commp)$/;"	f
+quick_sort	.\sort\sort.h	/^int quick_sort(T* ptr, int size, commpFun commp)$/;"	f
+rb_delete	.\tree\RBTree.hpp	/^	void rb_delete(RBTreeNode<T>* del_node)$/;"	f	class:RBTree
+rb_delete	.\tree\RBTree.hpp	/^	void rb_delete(T key)$/;"	f	class:RBTree
+rb_delete_fixup	.\tree\RBTree.hpp	/^	void rb_delete_fixup(RBTreeNode<T>* child)$/;"	f	class:RBTree
+rb_insert	.\tree\RBTree.hpp	/^	RBTreeNode<T>* rb_insert(T key)$/;"	f	class:RBTree
+rb_insert_fixup	.\tree\RBTree.hpp	/^	void rb_insert_fixup(RBTreeNode<T>* ins_node)$/;"	f	class:RBTree
+rchild	.\tree\BinSearchTree.hpp	/^	BinSearchTreeNode<T>* rchild;$/;"	m	class:BinSearchTreeNode
+rchild	.\tree\RBTree.hpp	/^	RBTreeNode<T>* rchild;$/;"	m	class:RBTreeNode
+right_rotate	.\tree\RBTree.hpp	/^	void right_rotate(RBTreeNode<T>* node)$/;"	f	class:RBTree
+root	.\tree\BinSearchTree.hpp	/^	BinSearchTreeNode<T>* root;$/;"	m	class:BinSearchTree
+root	.\tree\RBTree.hpp	/^	RBTreeNode<T>* root;$/;"	m	class:RBTree
+select_sort	.\sort\sort.h	/^int select_sort(T* ptr, int size, commpFun commp)$/;"	f
+shell_sort	.\sort\sort.h	/^int shell_sort(T* ptr, int size, commpFun commp)$/;"	f
+~RBTree	.\tree\RBTree.hpp	/^	~RBTree()$/;"	f	class:RBTree
